@@ -16,7 +16,7 @@ class App extends Component {
       <React.Fragment>
         <ul className="list-group">
           {this.state.chicken.map((chick, index) =>
-            <li key={index} className="list-group-item">{chick.race}</li>
+            <li key={index} className={this.getListClasses(index)}>{chick.race}</li>
           )}
         </ul>
         <hr />
@@ -30,6 +30,11 @@ class App extends Component {
         </div>
       </React.Fragment>
     );
+  }
+
+  getListClasses(index) {
+    const classes = 'list-group-item';
+    return this.state.current === index ? classes + ' active' : classes;
   }
 
   handleNextButton = () => {
