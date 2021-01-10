@@ -1,6 +1,7 @@
 // src/App.jsx
 import React, { Component } from "react";
 import Card from "./components/card";
+import List from "./components/list";
 
 class App extends Component {
   state = {
@@ -27,17 +28,11 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <ul className="list-group">
-          {this.state.chicken.map((chick, index) => (
-            <li key={index} className={this.getListClasses(index)}>
-              {chick.race}
-            </li>
-          ))}
-        </ul>
+        <List current={this.state.current} chicken={this.state.chicken} />
         <hr />
         <Card
           current={this.state.current}
-          chicken={this.state.chicken}
+          chick={this.state.chicken[this.state.current]}
           onChickChange={this.handleChickChange}
         />
       </React.Fragment>
@@ -47,11 +42,6 @@ class App extends Component {
   handleChickChange = (current) => {
     this.setState({ current: current });
   };
-
-  getListClasses(index) {
-    const classes = "list-group-item";
-    return this.state.current === index ? classes + " active" : classes;
-  }
 }
 
 export default App;
