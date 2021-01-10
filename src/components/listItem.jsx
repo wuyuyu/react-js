@@ -1,23 +1,12 @@
 import React, { Component } from "react";
 
-class ListItem extends Component {
-  state = {
-    current: this.props.current,
-    chick: this.props.chick,
+const ListItem = (props) => {
+  const getListClasses = (index) => {
+    const classes = "list-group-item";
+    return props.current === index ? classes + " active" : classes;
   };
 
-  render() {
-    return (
-      <li className={this.getListClasses(this.state.index)}>
-        {this.state.chick.race}
-      </li>
-    );
-  }
-
-  getListClasses(index) {
-    const classes = "list-group-item";
-    return this.state.current === index ? classes + " active" : classes;
-  }
-}
+  return <li className={getListClasses(props.index)}>{props.chick.race}</li>;
+};
 
 export default ListItem;
