@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+// src/components/list.jsx
+import React from "react";
 import ListItem from "./listItem.jsx";
 
 const List = (props) => {
@@ -10,6 +11,7 @@ const List = (props) => {
           index={index}
           current={props.current}
           chick={chick}
+          handleDelete={() => props.handleDelete(index)}
         />
       ))}
     </ul>

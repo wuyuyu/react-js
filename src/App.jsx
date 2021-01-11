@@ -26,20 +26,41 @@ class App extends Component {
   };
 
   render() {
-    return (
-      <React.Fragment>
-        <List current={this.state.current} chicken={this.state.chicken} />
-        <hr />
-        <Card
-          current={this.state.current}
-          chick={this.state.chicken[this.state.current]}
-          onChickChange={this.handleChickChange}
-        />
-      </React.Fragment>
-    );
+    let componentsToRender = <h2>No elements to render</h2>;
+
+    if (this.state.chicken.length) {
+      componentsToRender = (
+        <React.Fragment>
+          <List
+            current={this.state.current}
+            chicken={this.state.chicken}
+            handleDelete={this.handleDeleteListItem}
+          />
+          <hr />
+          <Card
+            current={this.state.current}
+            chick={this.state.chicken[this.state.current]}
+            onChickChange={this.handleChickChange}
+          />
+        </React.Fragment>
+      );
+    }
+    return componentsToRender;
   }
 
-  handleChickChange = (current) => {
+  handleDeleteListItem = (index) => {
+    const chicken = this.state.chicken.filter((chick, key) => {
+      return key !== index;
+    });
+
+    this.setState({ chicken: chicken });
+  };
+
+  handleChickChange = () => {
+    const current =
+      this.state.current === this.state.chicken.length - 1
+        ? 0
+        : this.state.current + 1;
     this.setState({ current: current });
   };
 }
