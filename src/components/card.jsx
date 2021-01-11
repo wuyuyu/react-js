@@ -11,11 +11,7 @@ const Card = (props) => {
       <div className="card-body">
         <h5 className="card-title">{race}</h5>
         <p className="card-text">est une poule {type}</p>
-        <a
-          href="#"
-          onClick={() => onChickChange(current === 2 ? 0 : current + 1)}
-          className="btn btn-primary"
-        >
+        <a href="#" onClick={onChickChange} className="btn btn-primary">
           Next
         </a>
       </div>
