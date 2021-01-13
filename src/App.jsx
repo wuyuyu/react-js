@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import Card from "./components/card";
 import List from "./components/list";
+import NewChickForm from "./components/newChickForm";
 
 class App extends Component {
   state = {
@@ -45,8 +46,18 @@ class App extends Component {
         </React.Fragment>
       );
     }
-    return componentsToRender;
+    return (
+      <React.Fragment>
+        <NewChickForm onNewChick={this.handleNewChick} />
+        <hr />
+        {componentsToRender}
+      </React.Fragment>
+    );
   }
+
+  handleNewChick = (chick) => {
+    this.setState({ chicken: [...this.state.chicken, chick] });
+  };
 
   handleDeleteListItem = (index) => {
     const chicken = this.state.chicken.filter((chick, key) => {
