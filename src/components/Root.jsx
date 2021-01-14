@@ -1,11 +1,11 @@
 // src/Root.jsx
 import React, { Component } from "react";
-import Action from "./components/action";
-import Navbar from "./components/navbar";
-import Basket from "./components/basket";
-import ProductCard from "./components/productCard";
-import ProductList from "./components/productList";
-import { products } from "./data/products";
+import Action from "./action";
+import Navbar from "./navbar";
+import Basket from "./basket";
+import ProductCard from "./productCard";
+import ProductList from "./productList";
+import { products } from "../data/products";
 
 class Root extends Component {
   state = {
