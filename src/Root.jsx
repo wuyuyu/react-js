@@ -36,8 +36,8 @@ class Root extends Component {
 
     return (
       <React.Fragment>
-        <div color="deep-purple">
-          Super
+        <div class="bg-danger">
+          Super  
           <input type="search" />
         </div>
         <h3>Panier</h3>
@@ -80,8 +80,9 @@ class Root extends Component {
 
   handleProductAdd = () => {
     const addedItem = this.state.addedItem;
-console.log(addedItem);
-    if (addedItem.includes(this.state.products[this.state.current].productID)) {
+    //console.log(addedItem);
+    //console.log(this.state.products[this.state.current].productId);
+    if (addedItem.includes(this.state.products[this.state.current].productId)) {
       alert("cet produit est déjà dans le panier");
     } else {
       this.setState({ numberItem: this.state.numberItem + 1 });
@@ -90,7 +91,7 @@ console.log(addedItem);
           this.state.totalPrice +
           this.state.products[this.state.current].productPrice,
       });
-      addedItem.push(this.state.products.productID);
+      addedItem.push(this.state.products[this.state.current].productId);
       this.setState({ addedItem: addedItem });
     }
   };
