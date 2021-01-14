@@ -2,18 +2,20 @@
 import React from "react";
 
 const Card = (props) => {
-  const { onChickChange, current, chick } = props;
-  const { imgUrl, race, type } = chick;
+  const { current, product, onProductAdd} = props;
+  //const { imgUrl, race, type } = chick;
+  const { productImage, productCategory, productName } = product;
 
   return (
     <div className="card" style={{ width: "18rem" }}>
-      <img src={imgUrl} className="card-img-top" alt="..." />
+      <img src={props.product.productImage} className="card-img-top" alt="..." />
       <div className="card-body">
-        <h5 className="card-title">{race}</h5>
-        <p className="card-text">est une poule {type}</p>
-        <a href="#" onClick={onChickChange} className="btn btn-primary">
-          Next
-        </a>
+        <p className="card-title">Product Category: {props.product.productCategory}</p>
+        <p className="card-text">Name product: {props.product.productName}</p>
+        <p>Price: {props.product.productPrice} €</p>
+        <button onClick={onProductAdd} class="btn btn-success">
+          Ajouter
+        </button>
       </div>
     </div>
   );

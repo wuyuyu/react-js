@@ -9,13 +9,8 @@ const ListItem = (props) => {
 
   return (
     <li className={getListClasses(props.index)}>
-      <button
-        className="mr-3 btn btn-sm btn-danger"
-        onClick={props.handleDelete}
-      >
-        X
-      </button>
-      <span>{props.chick.race}</span>
+      <span><b>{props.product.productName}</b></span>
+      <span>({props.product.productCategory})</span>
     </li>
   );
 };
