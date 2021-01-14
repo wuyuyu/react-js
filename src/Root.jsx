@@ -1,8 +1,16 @@
 import React, { Component } from "react";
+import Card from './Card';
+import List from './List';
+
 
 class Root extends Component {
+  
   render() {
-    return <h3>Hello Root</h3>;
+    return <div>
+      <h3>Panier</h3>
+        <List/>
+        <Card/>;
+      </div>
   }
 }
 
