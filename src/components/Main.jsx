@@ -4,7 +4,7 @@ import Card from "./card";
 import List from "./list";
 import NewChickForm from "./newChickForm";
 
-class App extends Component {
+class Main extends Component {
   state = {
     chicken: [
       {
@@ -76,4 +76,4 @@ class App extends Component {
   };
 }
 
-export default App;
+export default Main;
