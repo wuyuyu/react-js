@@ -6,10 +6,20 @@ class AppSwitch extends Component {
     return (
       <nav>
         <ul className="nav nav-tabs">
-          <li className="nav-item mr-3">Home</li>
-          <li className="nav-item mr-3">Chicken</li>
-          <li className="nav-item mr-3">E-Commerce</li>
-          <li className="nav-item mr-3">Persons</li>
+
+          <Link to="/">
+            <li className="nav-item mr-3">Home</li>
+          </Link>
+          <Link to="/chicken">
+            <li className="nav-item mr-3">Chicken</li>
+          </Link>
+          <Link to="/e-commerce">
+            <li className="nav-item mr-3">E-Commerce</li>
+          </Link>
+          <Link to="/persons">
+            <li className="nav-item mr-3">Persons</li>
+          </Link>
+
         </ul>
       </nav>
     );
